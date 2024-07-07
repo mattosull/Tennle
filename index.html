@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tennle | Guess the tennis player!</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="background"></div>
+        <h1>TENNLE</h1>
+        <p class="guess" id="guessNumber">Guess /10</p>
+        <input type="text" id="searchBar" placeholder="Guess a player...">
+        <ul id="resultsList"></ul>
+        <div id="player-list"></div>
+        <div id="selected-players"></div>
+    </div>
+    <div id="losePopup" class="popup">
+        <span class="close">&times;</span>
+        <p>You lost! The correct answer was...</p>
+        <p class="correctAnswer"></p>
+    </div>
+    <div id="winPopup" class="popup">
+        <span class="close">&times;</span>
+        <p>Well done! You guessed</p>
+        <p class="correctAnswer"></p>
+        <p id="guesses"></p>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
