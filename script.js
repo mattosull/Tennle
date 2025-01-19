@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const selectedPlayersDiv = document.getElementById('selected-players');
     let outOfGuesses = false;
     let guessNum = 1;
-    document.getElementById('guessNumber').innerText = "Guess " + guessNum + "/10";
+    document.getElementById('guessNumber').innerText = "GUESS " + guessNum + "/10";
     searchBar.addEventListener('input', () => {
         if(!outOfGuesses) {
         const searchText = searchBar.value.toLowerCase();
@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     if(guessNum <= 10) {
                     guessNum += 1;
                     if(guessNum < 11) {
-                    document.getElementById('guessNumber').innerText = "Guess " + guessNum + "/10";
+                    document.getElementById('guessNumber').innerText = "GUESS " + guessNum + "/10";
                     if(guessNum == 10) {
                         document.getElementById('guessNumber').style.color = 'red';
                     }
@@ -146,8 +146,41 @@ document.addEventListener('DOMContentLoaded', () => {
                         outOfGuesses = true;
                     } else if (guessNum == 11) {
                         document.getElementsByClassName('correctAnswer')[0].innerText = formatName(randomPlayer.name);
+                        
+                        // Create the correct player profile information
+                        const correctPlayerInfo = `
+                        <div class="player-info">
+                            <div class="player-info-container">
+                                <img class="photo" src="${randomPlayer.photo_src}" alt="${formatName(randomPlayer.name)}">
+                                <span class="player-name">${formatName(randomPlayer.name)}</span>
+                            </div>
+                            <div class="player-stats">
+                                <div class="row">
+                                    <div class="stat-box" id="rank">Rank<p class="value">${randomPlayer.rank}</p></div>
+                                    <div class="stat-box" id="highest_rank">Peak Rank<p class="value">${randomPlayer.highest_rank}</p></div>
+                                    <div class="stat-box" id="gender">Gender<p class="value">${randomPlayer.gender}</p></div>
+                                </div>
+                                <div class="row">
+                                    <div class="stat-box" id="country">Country<p class="value">${randomPlayer.country}</p></div>
+                                    <div class="stat-box" id="age">Age<p class="value">${randomPlayer.age}</p></div>
+                                    <div class="stat-box" id="titles">${label}<p class="value">${randomPlayer.titles}</p></div>
+                                </div>
+                            </div>
+                        </div>
+                        `;
+                        
+                        // Create a div for the profile and append to the losePopup
+                        const correctPlayerInfoDiv = document.createElement('div');
+                        correctPlayerInfoDiv.innerHTML = correctPlayerInfo;
+                        
+                        // Append the profile to the lose popup
+                        const losePopupContent = document.getElementById('losePopup');
+                        losePopupContent.appendChild(correctPlayerInfoDiv);
+                    
+                        // Display the lose popup
                         document.getElementById('losePopup').style.display = 'block';
                     }
+                    
                 }
                 });
                 resultsList.appendChild(li);

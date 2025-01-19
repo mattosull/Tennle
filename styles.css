@@ -8,6 +8,10 @@
     z-index: 0;
 }
 
+h1 {
+    font-size: 4vw;
+}
+
 body {
     font-family: 'Nunito Sans', serif;
     margin: 0;
@@ -113,12 +117,16 @@ body {
     overflow-y: auto;
     border: none;
     padding: 0;
-    margin-top: -15px;
+    margin-top: 5px;
     list-style: none;
     text-align: left;
     color: black;
+    width: 25vw;
     position: absolute;
-    width: 50vh;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 3px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 #resultsList li {
@@ -127,13 +135,13 @@ body {
 }
 
 #resultsList li:hover {
-    background-color: #cccccc;
+    background-color: rgba(180, 180, 180, 0.9)
 }
 
 .guess {
     margin-bottom: 0px;
     text-align: right;
-    margin-right: -12px;
+    margin-right: -0.5vw;
     font-weight: 1000;
     font-size: 0.8em;
 }
@@ -169,29 +177,72 @@ body {
     background-color: rgba(0,0,0,0.5);
 }
 
+#losePopup .player-info {
+    width: 30%;
+    margin: 0 auto; /* Centers horizontally */
+    margin-top: 10px;
+}
+
 @media only screen and (max-width: 600px) {
+    #losePopup .player-info {
+        width: 90%;
+        margin: 0 auto; /* Centers horizontally */
+        margin-top: 10px;
+    }
+
     .background {
         background-size: cover;
     }
 
+    h1 {
+        font-size: 10vw;
+    }
+
     .stat-box {
-        padding: 5px;
+        padding-top: 10px;
         border-radius: 5px;
-        margin-left: 3px;
-        margin-right: 3px;
-        font-size: 0.4em;
+        margin-left: 4px;
+        margin-right: 4px;
+        margin-top: -2px;
+        font-size: 0.75em;
+        min-height: 50px;
     }
 
     .player-info-container {
         display: flex;
         align-items: center;
         font-size: 0.8em;
+        padding: 5vw;
     }
 
     .player-info-container .photo {
-        width: 50px;
-        height: 50px;
+        width: 70px;
+        height: 70px;
         border-radius: 50%;
-        margin-right: 10px;
+        margin-right: 20px;
+    }
+
+    .player-info {
+        width: 92%;
+        margin: 0 auto;
+        padding: 2vw;
+        margin-top: 30px;
+    }
+
+    .player-name {
+        font-size: 2em !important;
+    }
+
+    #searchBar {
+        width: 90%;
+        margin: 0;
+    }
+
+    #resultsList {
+        width: 85%;
+    }
+
+    .guess {
+        margin-right: 3vw;
     }
 }
